@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Calculator
+Categories=Applications;
+Exec=env QT_QUICK_CONTROLS_STYLE=Asteroid /usr/bin/asteroid-calculator
+Icon=accessories-calculator
+X-Desktop-File-Install-Version=0.20
