@@ -21,9 +21,9 @@ import QtQuick.Controls 1.3
 import org.asteroid.controls 1.0
 import "calculator.js" as CalcEngine
 
-Application {
+Item {
     id: calcwindow
-    title: "Calculator"
+    anchors.fill: parent
 
     property string displayOperation: ""
     property string displayText: "0"
