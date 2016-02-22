@@ -36,56 +36,63 @@ Item {
         displayPrevious = CalcEngine.lastText
     }
 
-    Display {
-        id: display
-        height: parent.height * 0.2
-        anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
-        }
-    }
+    Item {
+        id: content
+        anchors.centerIn: parent
+        width: DeviceInfo.hadRoundScreen ? parent.width/Math.sqrt(2) : parent.width
+        height: DeviceInfo.hasRoundScreen ? parent.height/Math.sqrt(2) : parent.height
 
-    Grid {
-        id: grid
-        spacing: 4
-        rows: 5
-        columns: 4
-        anchors {
-            top: display.bottom
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
+        Display {
+            id: display
+            height: parent.height * 0.2
+            anchors {
+                top: parent.top
+                left: parent.left
+                right: parent.right
+            }
         }
 
-        property real w: (grid.width / columns) - ((spacing * (columns - 1)) / columns)
-        property real h: (grid.height / rows) - ((spacing * (rows - 1)) / rows)
+        Grid {
+            id: grid
+            spacing: 4
+            rows: 5
+            columns: 4
+            anchors {
+                top: display.bottom
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
 
-        CalcButton { width: grid.w; height: grid.h; operation: "C" }
-        CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.leftArrow }
-        CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.plusminus }
-        CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.division; }
+            property real w: (grid.width / columns) - ((spacing * (columns - 1)) / columns)
+            property real h: (grid.height / rows) - ((spacing * (rows - 1)) / rows)
+
+            CalcButton { width: grid.w; height: grid.h; operation: "C" }
+            CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.leftArrow }
+            CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.plusminus }
+            CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.division; }
 
 
-        CalcButton { width: grid.w; height: grid.h; operation: "7"; }
-        CalcButton { width: grid.w; height: grid.h; operation: "8"; }
-        CalcButton { width: grid.w; height: grid.h; operation: "9"; }
-        CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.multiplication; }
+            CalcButton { width: grid.w; height: grid.h; operation: "7"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "8"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "9"; }
+            CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.multiplication; }
 
-        CalcButton { width: grid.w; height: grid.h; operation: "4"; }
-        CalcButton { width: grid.w; height: grid.h; operation: "5"; }
-        CalcButton { width: grid.w; height: grid.h; operation: "6"; }
-        CalcButton { width: grid.w; height: grid.h; operation: "-"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "4"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "5"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "6"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "-"; }
 
-        CalcButton { width: grid.w; height: grid.h; operation: "1"; }
-        CalcButton { width: grid.w; height: grid.h; operation: "2"; }
-        CalcButton { width: grid.w; height: grid.h; operation: "3"; }
-        CalcButton { width: grid.w; height: grid.h; operation: "+"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "1"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "2"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "3"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "+"; }
 
-        Item       { width: grid.w; height: grid.h; }
-        CalcButton { width: grid.w; height: grid.h; operation: "0"; }
-        CalcButton { width: grid.w; height: grid.h; operation: "."; }
-        CalcButton { width: grid.w; height: grid.h; operation: "="; }
+            Item       { width: grid.w; height: grid.h; }
+            CalcButton { width: grid.w; height: grid.h; operation: "0"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "."; }
+            CalcButton { width: grid.w; height: grid.h; operation: "="; }
+        }
     }
 }
 
