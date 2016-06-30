@@ -28,7 +28,7 @@ MouseArea {
         id: buttonText
         anchors.centerIn: parent; anchors.verticalCenterOffset: -1
         font.pixelSize: parent.width > parent.height ? parent.height * .7 : parent.width * .7
-        style: Text.Sunken; color: "black"; styleColor: Qt.lighter(color, 1.2); smooth: true
+        style: Text.Sunken; color: "white"; styleColor: Qt.darker(color, 1.2); smooth: true
 
         Rectangle {
             id: shade

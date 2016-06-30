@@ -18,6 +18,7 @@
 
 import QtQuick 2.4
 import QtQuick.Controls 1.3
+import QtGraphicalEffects 1.0
 import org.asteroid.controls 1.0
 import "calculator.js" as CalcEngine
 
@@ -35,14 +36,27 @@ Application {
         displayPrevious = CalcEngine.lastText
     }
 
+    LinearGradient {
+        anchors.fill: parent
+        start: Qt.point(0, 0)
+        end: Qt.point(0, parent.height)
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "#23c2a1" }
+            GradientStop { position: 1.0; color: "#1bbc9b" }
+        }
+    }
+
     Item {
         id: content
         anchors.centerIn: parent
         width: DeviceInfo.hasRoundScreen ? parent.width/Math.sqrt(2) : parent.width
         height: DeviceInfo.hasRoundScreen ? parent.height/Math.sqrt(2) : parent.height
 
-        Display {
-            id: display
+        Rectangle {
+            id: displayBackground
+            color: "#2ccaaa"
+            Display { id: display; anchors.fill: parent }
+
             height: parent.height * 0.2
             anchors {
                 top: parent.top
@@ -57,7 +71,7 @@ Application {
             rows: 5
             columns: 4
             anchors {
-                top: display.bottom
+                top: displayBackground.bottom
                 left: parent.left
                 right: parent.right
                 bottom: parent.bottom
@@ -87,11 +101,11 @@ Application {
             CalcButton { width: grid.w; height: grid.h; operation: "3"; }
             CalcButton { width: grid.w; height: grid.h; operation: "+"; }
 
-            Item       { width: grid.w; height: grid.h; }
-            CalcButton { width: grid.w; height: grid.h; operation: "0"; }
             CalcButton { width: grid.w; height: grid.h; operation: "."; }
-            CalcButton { width: grid.w; height: grid.h; operation: "="; }
+            CalcButton { width: grid.w; height: grid.h; operation: "0"; }
         }
+
+        CalcButton { width: 2*grid.w; height: grid.h; operation: "="; anchors.right: parent.right; anchors.bottom: parent.bottom}
     }
 }
 
