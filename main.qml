@@ -17,7 +17,6 @@
  */
 
 import QtQuick 2.4
-import QtQuick.Controls 1.3
 import QtGraphicalEffects 1.0
 import org.asteroid.controls 1.0
 import "calculator.js" as CalcEngine
