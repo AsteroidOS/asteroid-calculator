@@ -18,7 +18,7 @@
 
 var rotateLeft = "\u2939"
 var rotateRight = "\u2935"
-var leftArrow = "\u2190"
+var leftArrow = "<"
 var division = "\u00f7"
 var multiplication = "\u00d7"
 var squareRoot = "\u221a"
