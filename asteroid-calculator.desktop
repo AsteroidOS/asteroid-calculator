@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Calculator
+Name[es_ES]=Calculadora
 Name[nl_NL]=Rekenmachine
 Categories=Applications;
 Exec=invoker --type=qtcomponents-qt5 /usr/bin/asteroid-calculator
