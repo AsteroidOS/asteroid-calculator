@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Calculator
+Name[de_DE]=Rechner
 Name[es_ES]=Calculadora
 Name[nl_NL]=Rekenmachine
 Categories=Applications;
