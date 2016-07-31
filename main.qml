@@ -37,8 +37,8 @@ Application {
     Rectangle {
         anchors.fill: parent
         gradient: Gradient {
-            GradientStop { position: 0.0; color: "#23c2a1" }
-            GradientStop { position: 1.0; color: "#1bbc9b" }
+            GradientStop { position: 0.0; color: "#6ac074" }
+            GradientStop { position: 1.0; color: "#2f7968" }
         }
     }
 
@@ -48,16 +48,25 @@ Application {
         width: DeviceInfo.hasRoundScreen ? parent.width/Math.sqrt(2) : parent.width
         height: DeviceInfo.hasRoundScreen ? parent.height/Math.sqrt(2) : parent.height
 
-        Rectangle {
+        Item {
             id: displayBackground
-            color: "#2ccaaa"
             Display { id: display; anchors.fill: parent }
 
-            height: parent.height * 0.2
+            height: parent.height/8
             anchors {
                 top: parent.top
                 left: parent.left
                 right: parent.right
+            }
+
+            Rectangle {
+                height: 1
+                color: "white"
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 15
+                anchors.rightMargin: 15
             }
         }
 

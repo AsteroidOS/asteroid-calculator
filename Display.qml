@@ -22,7 +22,7 @@ import "calculator.js" as CalcEngine
 Text {
     id: displayText
     text: calcwindow.displayText.length > 0 ? calcwindow.displayText : calcwindow.displayPrevious
-    color: "#eee"; smooth: true; font.bold: true
+    color: "white"; smooth: true; font.bold: true
     anchors.leftMargin: 20
     anchors.rightMargin: 20
     Component.onCompleted: refitText()
