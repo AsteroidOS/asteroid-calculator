@@ -3,8 +3,9 @@ Type=Application
 Name=Calculator
 Name[de_DE]=Rechner
 Name[es_ES]=Calculadora
-Name[nl_NL]=Rekenmachine
 Name[fr_FR]=Calculatrice
+Name[nl_NL]=Rekenmachine
+Name[pl_PL]=Kalkulator
 Categories=Applications;
 Exec=invoker --type=qtcomponents-qt5 /usr/bin/asteroid-calculator
 Icon=accessories-calculator
