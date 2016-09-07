@@ -8,5 +8,5 @@ Name[nl_NL]=Rekenmachine
 Name[pl_PL]=Kalkulator
 Categories=Applications;
 Exec=invoker --type=qtcomponents-qt5 /usr/bin/asteroid-calculator
-Icon=accessories-calculator
+Icon=ios-calculator-outline
 X-Desktop-File-Install-Version=0.20
