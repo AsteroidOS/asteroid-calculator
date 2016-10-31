@@ -34,13 +34,6 @@ Application {
         displayPrevious = CalcEngine.lastText
     }
 
-    Rectangle {
-        anchors.fill: parent
-        gradient: Gradient {
-            GradientStop { position: 0.0; color: "#6ac074" }
-            GradientStop { position: 1.0; color: "#2f7968" }
-        }
-    }
 
     Item {
         id: content
