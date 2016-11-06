@@ -34,12 +34,12 @@ Application {
         displayPrevious = CalcEngine.lastText
     }
 
-
     Item {
         id: content
-        anchors.centerIn: parent
-        width: DeviceInfo.hasRoundScreen ? parent.width/Math.sqrt(2) : parent.width
-        height: DeviceInfo.hasRoundScreen ? parent.height/Math.sqrt(2) : parent.height
+        anchors.fill: parent
+        anchors.leftMargin: DeviceInfo.hasRoundScreen ? width*0.09 : 0
+        anchors.rightMargin: DeviceInfo.hasRoundScreen ? width*0.09 : 0
+        anchors.bottomMargin: DeviceInfo.hasRoundScreen ? height*0.09 : 0
 
         Item {
             id: displayBackground
