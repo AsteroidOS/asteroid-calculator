@@ -26,8 +26,8 @@ Text {
     anchors.leftMargin: 20
     anchors.rightMargin: 20
     Component.onCompleted: refitText()
-    horizontalAlignment: Text.AlignRight;
-    verticalAlignment: Text.AlignVCenter;
+    horizontalAlignment: Text.AlignHCenter
+    verticalAlignment: Text.AlignVCenter
 
     property int minimumSize: 42
 
