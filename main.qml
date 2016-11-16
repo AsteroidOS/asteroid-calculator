@@ -23,6 +23,9 @@ import "calculator.js" as CalcEngine
 Application {
     id: calcwindow
 
+    centerColor: "#8bc34a"
+    outerColor: "#125413"
+
     property string displayOperation: ""
     property string displayText: "0"
     property string displayPrevious: ""

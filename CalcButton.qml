@@ -35,7 +35,7 @@ MouseArea {
             anchors.centerIn: parent;
             width: Math.max(parent.width, parent.height)
             height: width
-            radius: 20; color: "#2ccaaa"; opacity: 0
+            radius: 20; color: "#e3f100"; opacity: 0
         }
     }
 

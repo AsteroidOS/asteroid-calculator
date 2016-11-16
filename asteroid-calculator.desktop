@@ -10,4 +10,5 @@ Name[ru_RU]=калькулятор
 Categories=Applications;
 Exec=invoker --type=qtcomponents-qt5 /usr/bin/asteroid-calculator
 Icon=ios-calculator-outline
-X-Desktop-File-Install-Version=0.20
+X-Asteroid-Center-Color=#8bc34a
+X-Asteroid-Outer-Color=#125413
