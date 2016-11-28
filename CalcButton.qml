@@ -26,7 +26,7 @@ MouseArea {
 
     Text {
         id: buttonText
-        anchors.centerIn: parent; anchors.verticalCenterOffset: -1
+        anchors.centerIn: parent
         font.pixelSize: parent.width > parent.height ? parent.height * .7 : parent.width * .7
         style: Text.Sunken; color: "white"; styleColor: Qt.darker(color, 1.2); smooth: true
 
@@ -35,7 +35,8 @@ MouseArea {
             anchors.centerIn: parent;
             width: Math.max(parent.width, parent.height)
             height: width
-            radius: 20; color: "#e3f100"; opacity: 0
+            radius: 20; color: "#658e36"; opacity: 0
+            z: parent.z-1
         }
     }
 
@@ -46,8 +47,9 @@ MouseArea {
     states: [
        State {
            name: "pressed"; when: button.pressed == true
-           PropertyChanges { target: shade; opacity: .4 }
-           PropertyChanges { target: shade; scale: 1.5 }
+           PropertyChanges { target: shade; opacity: 1.0 }
+           PropertyChanges { target: shade; scale: 2.0 }
+           PropertyChanges { target: buttonText; anchors.verticalCenterOffset: -button.height }
            PropertyChanges { target: button; z: 1 }
        }
     ]
@@ -57,7 +59,7 @@ MouseArea {
             from: ""
             to: "pressed"
             NumberAnimation {
-                properties: "z,scale";
+                properties: "z,scale,anchors.verticalCenterOffset";
                 easing.type: Easing.OutExpo;
                 duration: 50
             }
@@ -71,7 +73,7 @@ MouseArea {
             from: "pressed"
             to: ""
             NumberAnimation {
-               properties: "z,scale";
+               properties: "z,scale,anchors.verticalCenterOffset";
                easing.type: Easing.OutExpo;
                duration: 200
             }
