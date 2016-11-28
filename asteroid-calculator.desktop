@@ -8,7 +8,7 @@ Name[nl_NL]=Rekenmachine
 Name[pl_PL]=Kalkulator
 Name[ru_RU]=калькулятор
 Categories=Applications;
-Exec=invoker --type=qtcomponents-qt5 /usr/bin/asteroid-calculator
+Exec=invoker --single-instance --type=qtcomponents-qt5 /usr/bin/asteroid-calculator
 Icon=ios-calculator-outline
 X-Asteroid-Center-Color=#8bc34a
 X-Asteroid-Outer-Color=#125413
