@@ -17,6 +17,7 @@
  */
 
 import QtQuick 2.0
+import org.asteroid.controls 1.0
 import "calculator.js" as CalcEngine
 
 Text {
@@ -26,7 +27,7 @@ Text {
     anchors.leftMargin: 20
     anchors.rightMargin: 20
     Component.onCompleted: refitText()
-    horizontalAlignment: Text.AlignHCenter
+    horizontalAlignment: DeviceInfo.hasRoundScreen ? Text.AlignHCenter : Text.AlignRight
     verticalAlignment: Text.AlignVCenter
 
     property int minimumSize: 42
