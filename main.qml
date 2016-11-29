@@ -23,8 +23,8 @@ import "calculator.js" as CalcEngine
 Application {
     id: calcwindow
 
-    centerColor: "#8bc34a"
-    outerColor: "#125413"
+    centerColor: "#709801"
+    outerColor: "#233412"
 
     property string displayOperation: ""
     property string displayText: "0"
