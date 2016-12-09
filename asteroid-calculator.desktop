@@ -2,14 +2,14 @@
 Type=Application
 Name=Calculator
 Name[de_DE]=Rechner
-Name[es_ES]=Calculadora
-Name[fr_FR]=Calculatrice
-Name[ko_KO]=계산기
+Name[es]=Calculadora
+Name[fr]=Calculatrice
+Name[ko]=계산기
 Name[nl_NL]=Rekenmachine
-Name[pl_PL]=Kalkulator
+Name[pl]=Kalkulator
 Name[pt_BR]=Calculadora
-Name[sv_SV]=Kalkylator
-Name[ru_RU]=калькулятор
+Name[sv]=Kalkylator
+Name[ru]=калькулятор
 Categories=Applications;
 Exec=invoker --single-instance --type=qtcomponents-qt5 /usr/bin/asteroid-calculator
 Icon=ios-calculator-outline
