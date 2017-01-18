@@ -8,8 +8,9 @@ Name[ko]=계산기
 Name[nl_NL]=Rekenmachine
 Name[pl]=Kalkulator
 Name[pt_BR]=Calculadora
-Name[sv]=Kalkylator
 Name[ru]=калькулятор
+Name[sv]=Kalkylator
+Name[uk]=Калькулятор
 Categories=Applications;
 Exec=invoker --single-instance --type=qtcomponents-qt5 /usr/bin/asteroid-calculator
 Icon=ios-calculator-outline
