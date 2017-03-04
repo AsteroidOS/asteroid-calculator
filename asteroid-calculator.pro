@@ -30,7 +30,8 @@ TARGET = asteroid-calculator
 target.path = /usr/bin/
 
 desktop.commands = bash $$PWD/i18n/generate-desktop.sh $$PWD asteroid-calculator.desktop
-desktop.files = asteroid-calculator.desktop
+desktop.files = $$OUT_PWD/asteroid-calculator.desktop
 desktop.path = /usr/share/applications
+desktop.CONFIG = no_check_exist
 
 INSTALLS += target desktop
