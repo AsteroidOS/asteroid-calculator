@@ -15,11 +15,11 @@ lupdate_only{
 }
 
 # Needed for lupdate
-TRANSLATIONS = i18n/asteroid-calculator.de.ts \
+TRANSLATIONS = i18n/asteroid-calculator.de_DE.ts \
                i18n/asteroid-calculator.es.ts \
                i18n/asteroid-calculator.fr.ts \
                i18n/asteroid-calculator.ko.ts \
-               i18n/asteroid-calculator.nl.ts \
+               i18n/asteroid-calculator.nl_NL.ts \
                i18n/asteroid-calculator.pl.ts \
                i18n/asteroid-calculator.pt_BR.ts \
                i18n/asteroid-calculator.ru.ts \
