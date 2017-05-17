@@ -40,9 +40,9 @@ Application {
     Item {
         id: content
         anchors.fill: parent
-        anchors.leftMargin: DeviceInfo.hasRoundScreen ? width*0.09 : 0
-        anchors.rightMargin: DeviceInfo.hasRoundScreen ? width*0.09 : 0
-        anchors.bottomMargin: DeviceInfo.hasRoundScreen ? height*0.09 : 0
+        anchors.leftMargin: DeviceInfo.hasRoundScreen ? parent.width*0.09 : 0
+        anchors.rightMargin: DeviceInfo.hasRoundScreen ? parent.width*0.09 : 0
+        anchors.bottomMargin: DeviceInfo.hasRoundScreen ? parent.height*0.09 : 0
 
         Item {
             id: displayBackground
