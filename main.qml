@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.4
+import QtQuick 2.9
 import org.asteroid.controls 1.0
 import "calculator.js" as CalcEngine
 
@@ -40,9 +40,10 @@ Application {
     Item {
         id: content
         anchors.fill: parent
-        anchors.leftMargin: DeviceInfo.hasRoundScreen ? parent.width*0.09 : 0
-        anchors.rightMargin: DeviceInfo.hasRoundScreen ? parent.width*0.09 : 0
-        anchors.bottomMargin: DeviceInfo.hasRoundScreen ? parent.height*0.09 : 0
+        anchors.topMargin: Dims.h(5)
+        anchors.leftMargin: DeviceInfo.hasRoundScreen ? Dims.w(9) : 0
+        anchors.rightMargin: DeviceInfo.hasRoundScreen ? Dims.w(9) : 0
+        anchors.bottomMargin: DeviceInfo.hasRoundScreen ? Dims.h(9) : 0
 
         Item {
             id: displayBackground
@@ -61,14 +62,14 @@ Application {
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.leftMargin: 15
-                anchors.rightMargin: 15
+                anchors.leftMargin: Dims.w(6)
+                anchors.rightMargin: Dims.w(6)
             }
         }
 
         Grid {
             id: grid
-            spacing: 4
+            spacing: Dims.w(2)
             rows: 5
             columns: 4
             anchors {

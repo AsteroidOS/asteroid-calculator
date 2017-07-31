@@ -16,7 +16,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.0
+import QtQuick 2.9
+import org.asteroid.controls 1.0
 
 MouseArea {
     id: button
@@ -35,14 +36,12 @@ MouseArea {
             anchors.centerIn: parent;
             width: Math.max(parent.width, parent.height)
             height: width
-            radius: 20; color: "#658e36"; opacity: 0
+            radius: width/2; color: "#658e36"; opacity: 0
             z: parent.z-1
         }
     }
 
-    onClicked: {
-        doOp(operation)
-    }
+    onClicked: doOp(operation)
 
     states: [
        State {

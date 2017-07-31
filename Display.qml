@@ -16,7 +16,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.0
+import QtQuick 2.9
 import org.asteroid.controls 1.0
 import "calculator.js" as CalcEngine
 
@@ -24,13 +24,13 @@ Text {
     id: displayText
     text: calcwindow.displayText.length > 0 ? calcwindow.displayText : calcwindow.displayPrevious
     color: "white"; smooth: true; font.bold: true
-    anchors.leftMargin: 20
-    anchors.rightMargin: 20
+    anchors.leftMargin: Dims.w(7)
+    anchors.rightMargin: Dims.w(7)
     Component.onCompleted: refitText()
     horizontalAlignment: DeviceInfo.hasRoundScreen ? Text.AlignHCenter : Text.AlignRight
     verticalAlignment: Text.AlignVCenter
 
-    property int minimumSize: 42
+    property int minimumSize: Dims.l(15)
 
     onWidthChanged: refitText()
     onHeightChanged: refitText()
@@ -51,8 +51,8 @@ Text {
         }
 
         // sanity cap
-        if (font.pixelSize >= 120) {
-            font.pixelSize = 120
+        if (font.pixelSize >= Dims.l(40)) {
+            font.pixelSize = Dims.l(40)
             return
         }
 
