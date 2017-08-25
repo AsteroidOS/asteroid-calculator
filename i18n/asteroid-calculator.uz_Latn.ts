@@ -6,7 +6,7 @@
     <message>
         <location filename="asteroid-calculator.desktop.h" line="5"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalkulyator</translation>
     </message>
 </context>
 </TS>
