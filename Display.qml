@@ -21,10 +21,10 @@ import org.asteroid.controls 1.0
 import org.asteroid.utils 1.0
 import "calculator.js" as CalcEngine
 
-Text {
+Label {
     id: displayText
     text: calcwindow.displayText.length > 0 ? calcwindow.displayText : calcwindow.displayPrevious
-    color: "white"; smooth: true; font.bold: true
+    smooth: true; font.bold: true
     anchors.leftMargin: Dims.w(7)
     anchors.rightMargin: Dims.w(7)
     Component.onCompleted: refitText()
