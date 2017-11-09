@@ -25,11 +25,11 @@ MouseArea {
     property alias operation: buttonText.text
     property alias color: buttonText.color
 
-    Text {
+    Label {
         id: buttonText
         anchors.centerIn: parent
         font.pixelSize: parent.width > parent.height ? parent.height * .7 : parent.width * .7
-        style: Text.Sunken; color: "white"; styleColor: Qt.darker(color, 1.2); smooth: true
+        style: Text.Sunken; styleColor: Qt.darker(color, 1.2); smooth: true
 
         Rectangle {
             id: shade
