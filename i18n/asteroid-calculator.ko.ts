@@ -2,11 +2,18 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ko">
 <context>
+    <name></name>
+    <message id="id-app-launcher-name">
+        <location filename="asteroid-calculator.desktop.h" line="6"/>
+        <source>Calculator</source>
+        <translation type="unfinished">계산기</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <location filename="asteroid-calculator.desktop.h" line="5"/>
         <source>Calculator</source>
-        <translation>계산기</translation>
+        <translation type="vanished">계산기</translation>
     </message>
 </context>
 </TS>
