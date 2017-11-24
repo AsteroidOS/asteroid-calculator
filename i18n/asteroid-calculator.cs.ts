@@ -6,14 +6,7 @@
     <message id="id-app-launcher-name">
         <location filename="asteroid-calculator.desktop.h" line="6"/>
         <source>Calculator</source>
-        <translation type="unfinished">Kalkulačka</translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <source>Calculator</source>
-        <translation type="vanished">Kalkulačka</translation>
+        <translation>Kalkulačka</translation>
     </message>
 </context>
 </TS>
