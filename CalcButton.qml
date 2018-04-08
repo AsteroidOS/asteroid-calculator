@@ -30,14 +30,19 @@ MouseArea {
         anchors.centerIn: parent
         font.pixelSize: parent.width > parent.height ? parent.height * .7 : parent.width * .7
         style: Text.Sunken; styleColor: Qt.darker(color, 1.2); smooth: true
+        clip: false
 
         Rectangle {
             id: shade
             anchors.centerIn: parent;
             width: Math.max(parent.width, parent.height)
             height: width
-            radius: width/2; color: "#658e36"; opacity: 0
+            radius: width/2;
+            color: "#618404";
+            opacity: 0
             z: parent.z-1
+            border.width: 1
+            border.color: "#517008"
         }
     }
 
