@@ -6,7 +6,7 @@
     <message id="id-app-launcher-name">
         <location filename="asteroid-calculator.desktop.h" line="6"/>
         <source>Calculator</source>
-        <translation type="unfinished"></translation>
+        <translation>電卓</translation>
     </message>
 </context>
 </TS>
