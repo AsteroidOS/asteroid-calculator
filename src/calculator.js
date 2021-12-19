@@ -135,4 +135,3 @@ function disabled(op) {
         currentText ="0"
     }
 }
-

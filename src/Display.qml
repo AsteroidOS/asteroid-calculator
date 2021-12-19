@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2015 - Florent Revest <revestflo@gmail.com>
+ * Copyright (C) 2021 - Timo Könnecke <github.com/eLtMosen>
+ *               2015 - Florent Revest <revestflo@gmail.com>
  *               2011 - Nokia Corporation and/or its subsidiary(-ies).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,42 +22,77 @@ import org.asteroid.controls 1.0
 import org.asteroid.utils 1.0
 import "calculator.js" as CalcEngine
 
-Label {
+Text {
     id: displayText
-    text: calcwindow.displayText.length > 0 ? calcwindow.displayText : calcwindow.displayPrevious
-    smooth: true; font.bold: true
-    anchors.leftMargin: Dims.w(7)
-    anchors.rightMargin: Dims.w(7)
-    Component.onCompleted: refitText()
+
+    property string displayTextLength: calcwindow.displayText.length > 0 ? calcwindow.displayText : calcwindow.displayPrevious
+    property int minimumSize: Dims.l(9)
+
+    anchors {
+        leftMargin: Dims.w(9)
+        rightMargin: Dims.w(9)
+    }
+    color: "#ff84E6F8"
+    font.styleName: "ExtraCondensed"
+    verticalAlignment: Text.AlignBottom
     horizontalAlignment: DeviceInfo.hasRoundScreen ? Text.AlignHCenter : Text.AlignRight
-    verticalAlignment: Text.AlignVCenter
 
-    property int minimumSize: Dims.l(15)
-
+    onDisplayTextLengthChanged: refitText()
+    Component.onCompleted: refitText()
     onWidthChanged: refitText()
     onHeightChanged: refitText()
     onTextChanged: refitText()
 
     function refitText() {
-        if (paintedHeight == -1 || paintedWidth == -1)
-            return
-
-        while (paintedWidth > width || paintedHeight > height) {
-            if (--font.pixelSize <= minimumSize || font.pixelSize <= 0)
-                break
+        switch (displayTextLength.length) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5: {
+                font.pixelSize = Dims.l(15)
+                return
+            }
+            case 6: {
+                font.pixelSize = Dims.l(14)
+                return
+            }
+            case 7: {
+                font.pixelSize = Dims.l(13)
+                return
+            }
+            case 8: {
+                font.pixelSize = Dims.l(12.5)
+                return
+            }
+            case 9: {
+                font.pixelSize = Dims.l(12)
+                return
+            }
+            case 10:
+            case 11: {
+                font.pixelSize = Dims.l(11)
+                return
+            }
+            case 12: {
+                font.pixelSize = Dims.l(10.5)
+                return
+            }
+            case 13: {
+                font.pixelSize = Dims.l(10)
+                return
+            }
+            case 14: {
+                font.pixelSize = Dims.l(9.5)
+                return
+            }
+            default: {
+                font.pixelSize = Dims.l(9)
+                return
+            }
         }
-
-        while (paintedWidth < width && paintedHeight < height) {
-            font.pixelSize++
-
-        }
-
-        // sanity cap
-        if (font.pixelSize >= Dims.l(40)) {
-            font.pixelSize = Dims.l(40)
-            return
-        }
-
-        font.pixelSize--
     }
+
+    text: displayTextLength
 }

@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2015 - Florent Revest <revestflo@gmail.com>
+ * Copyright (C) 2021 - Timo Könnecke <github.com/eLtMosen>
+*                2015 - Florent Revest <revestflo@gmail.com>
  *               2011 - Nokia Corporation and/or its subsidiary(-ies).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,22 +28,22 @@ MouseArea {
 
     Label {
         id: buttonText
+
         anchors.centerIn: parent
         font.pixelSize: parent.width > parent.height ? parent.height * .7 : parent.width * .7
-        style: Text.Sunken; styleColor: Qt.darker(color, 1.2); smooth: true
+        smooth: true
         clip: false
 
         Rectangle {
             id: shade
-            anchors.centerIn: parent;
+
+            anchors.centerIn: parent
             width: Math.max(parent.width, parent.height)
             height: width
-            radius: width/2;
-            color: "#618404";
+            radius: width / 2
+            color: "#E83F6F"
             opacity: 0
-            z: parent.z-1
-            border.width: 1
-            border.color: "#517008"
+            z: parent.z - 1
         }
     }
 
@@ -50,12 +51,71 @@ MouseArea {
 
     states: [
        State {
-           name: "pressed"; when: button.pressed == true
-           PropertyChanges { target: shade; opacity: 1.0 }
-           PropertyChanges { target: shade; scale: 2.0 }
-           PropertyChanges { target: buttonText; anchors.verticalCenterOffset: -button.height }
-           PropertyChanges { target: button; z: 1 }
-       }
+           name: "pressed"
+           when: button.pressed === true
+
+           PropertyChanges { target: button; z: 2 }
+           PropertyChanges { target: shade; opacity: 1 }
+           PropertyChanges { target: shade; scale: 1 }
+           PropertyChanges { target: buttonText; font.pixelSize: parent.width * 1.2 }
+           PropertyChanges { target: buttonText; font.styleName: "Black" }
+           PropertyChanges {
+               target: buttonText
+               anchors.verticalCenterOffset:
+                   switch (buttonText.text) {
+                       case "-": {
+                           -button.height * 1.14
+                           break
+                       }
+                       case "\u00f7": {
+                           -button.height * 1.14
+                           break
+                       }
+                       case "7": {
+                           -button.height * 1.1
+                           break
+                       }
+                       case "8": {
+                           -button.height * 1.2
+                           break
+                       }
+                       case "9": {
+                           -button.height * 1.1
+                           break
+                       }
+                       default: {
+                           -button.height * 1.5
+                           break
+                       }
+                   }
+           }
+           PropertyChanges {
+               target: buttonText
+               anchors.horizontalCenterOffset:
+                   switch (buttonText.text) {
+                       case "-": {
+                           -button.height * 0.7
+                           break
+                       }
+                       case "\u00f7": {
+                           button.height * 0.7
+                           break
+                       }
+                       case "\u00d7": {
+                           button.height * 0.3
+                           break
+                       }
+                       case "+": {
+                           -button.height * 0.3
+                           break
+                       }
+                       default: {
+                           0
+                           break
+                       }
+                   }
+           }
+        }
     ]
 
     transitions: [
@@ -63,30 +123,29 @@ MouseArea {
             from: ""
             to: "pressed"
             NumberAnimation {
-                properties: "z,scale,anchors.verticalCenterOffset";
-                easing.type: Easing.OutExpo;
-                duration: 50
+                properties: "z,scale,anchors.verticalCenterOffset,anchors.horizontalCenterOffset,font.pixelSize"
+                easing.type: Easing.OutExpo
+                duration: 30
             }
             NumberAnimation {
-               properties: "opacity";
-               easing.type: Easing.OutExpo;
-               duration: 100
+                properties: "opacity"
+                easing.type: Easing.OutExpo
+                duration: 40
             }
         },
         Transition {
             from: "pressed"
             to: ""
             NumberAnimation {
-               properties: "z,scale,anchors.verticalCenterOffset";
-               easing.type: Easing.OutExpo;
-               duration: 200
+                properties: "z,scale,anchors.verticalCenterOffset,anchors.horizontalCenterOffset,font.pixelSize"
+                easing.type: Easing.InExpo
+                duration: 60
             }
             NumberAnimation {
-               properties: "opacity";
-               easing.type: Easing.OutExpo;
-               duration: 300
+                properties: "opacity"
+                easing.type: Easing.InExpo
+                duration: 80
             }
         }
     ]
 }
-
