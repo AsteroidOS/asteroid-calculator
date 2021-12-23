@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2015 - Florent Revest <revestflo@gmail.com>
+ * Copyright (C) 2021 - Timo Könnecke <github.com/eLtMosen>
+ *               2015 - Florent Revest <revestflo@gmail.com>
  *               2011 - Nokia Corporation and/or its subsidiary(-ies).
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,9 +28,9 @@ Application {
     centerColor: "#709801"
     outerColor: "#233412"
 
-    property string displayOperation: ""
     property string displayText: "0"
     property string displayPrevious: ""
+    property string displayOperation: ""
 
     function doOp(operation) {
         CalcEngine.doOperation(operation)
@@ -40,17 +41,25 @@ Application {
 
     Item {
         id: content
-        anchors.fill: parent
-        anchors.topMargin: Dims.h(5)
-        anchors.leftMargin: DeviceInfo.hasRoundScreen ? Dims.w(9) : 0
-        anchors.rightMargin: DeviceInfo.hasRoundScreen ? Dims.w(9) : 0
-        anchors.bottomMargin: DeviceInfo.hasRoundScreen ? Dims.h(9) : 0
+
+        anchors {
+            fill: parent
+            leftMargin: DeviceInfo.hasRoundScreen ? Dims.w(8) : 0
+            rightMargin: DeviceInfo.hasRoundScreen ? Dims.w(8) : 0
+            bottomMargin: DeviceInfo.hasRoundScreen ? Dims.h(7) : 0
+        }
 
         Item {
             id: displayBackground
-            Display { id: display; anchors.fill: parent }
 
-            height: parent.height/8
+            Display {
+                id: display
+
+                anchors.fill: parent
+                anchors.bottomMargin: Dims.w(2)
+            }
+
+            height: parent.height/4
             anchors {
                 top: parent.top
                 left: parent.left
@@ -58,23 +67,35 @@ Application {
             }
 
             Rectangle {
-                height: 1
-                color: "white"
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.leftMargin: Dims.w(6)
-                anchors.rightMargin: Dims.w(6)
+                id: displaySpacer
+
+                z: -1
+                anchors {
+                    bottom: parent.bottom
+                    left: parent.left
+                    right: parent.right
+                    leftMargin: -Dims.w(8)
+                    rightMargin: -Dims.w(8)
+                }
+                height: content.height/4
+                color: "#bb19381F"
+            }
+
+            MouseArea {
+                anchors.fill: displayBackground
+                onClicked: doOp(CalcEngine.plusminus)
             }
         }
 
         Grid {
             id: grid
+
             spacing: Dims.w(2)
-            rows: 5
-            columns: 4
+            rows: 4
+            columns: 5
             anchors {
                 top: displayBackground.bottom
+                topMargin: Dims.h(1)
                 left: parent.left
                 right: parent.right
                 bottom: parent.bottom
@@ -83,32 +104,28 @@ Application {
             property real w: (grid.width / columns) - ((spacing * (columns - 1)) / columns)
             property real h: (grid.height / rows) - ((spacing * (rows - 1)) / rows)
 
-            CalcButton { width: grid.w; height: grid.h; operation: "C" }
-            CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.leftArrow }
-            CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.plusminus }
             CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.division; }
-
-
             CalcButton { width: grid.w; height: grid.h; operation: "7"; }
             CalcButton { width: grid.w; height: grid.h; operation: "8"; }
             CalcButton { width: grid.w; height: grid.h; operation: "9"; }
-            CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.multiplication; }
+            CalcButton { width: grid.w; height: grid.h; operation: "-"; }
 
+            CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.multiplication; }
             CalcButton { width: grid.w; height: grid.h; operation: "4"; }
             CalcButton { width: grid.w; height: grid.h; operation: "5"; }
             CalcButton { width: grid.w; height: grid.h; operation: "6"; }
-            CalcButton { width: grid.w; height: grid.h; operation: "-"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "+"; }
 
+            CalcButton { width: grid.w; height: grid.h; operation: "C"  }
             CalcButton { width: grid.w; height: grid.h; operation: "1"; }
             CalcButton { width: grid.w; height: grid.h; operation: "2"; }
             CalcButton { width: grid.w; height: grid.h; operation: "3"; }
-            CalcButton { width: grid.w; height: grid.h; operation: "+"; }
+            CalcButton { width: grid.w; height: grid.h; operation: "="; }
 
+            Item { width: grid.w; height: width; }
             CalcButton { width: grid.w; height: grid.h; operation: "."; }
             CalcButton { width: grid.w; height: grid.h; operation: "0"; }
+            CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.leftArrow }
         }
-
-        CalcButton { width: 2*grid.w; height: grid.h; operation: "="; anchors.right: parent.right; anchors.bottom: parent.bottom}
     }
 }
-
