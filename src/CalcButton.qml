@@ -38,10 +38,11 @@ MouseArea {
             id: shade
 
             anchors.centerIn: parent
+            anchors.verticalCenterOffset: parent.height * .02
             width: Math.max(parent.width, parent.height)
             height: width
             radius: width / 2
-            color: "#E83F6F"
+            color: "#19381F"
             opacity: 0
             z: parent.z - 1
         }
@@ -55,10 +56,10 @@ MouseArea {
            when: button.pressed === true
 
            PropertyChanges { target: button; z: 2 }
-           PropertyChanges { target: shade; opacity: 1 }
+           PropertyChanges { target: shade; opacity: .9 }
            PropertyChanges { target: shade; scale: 1 }
-           PropertyChanges { target: buttonText; font.pixelSize: parent.width * 1.2 }
-           PropertyChanges { target: buttonText; font.styleName: "Black" }
+           PropertyChanges { target: buttonText; font.pixelSize: parent.width * 1.1 }
+           PropertyChanges { target: buttonText; font.styleName: "Bold" }
            PropertyChanges {
                target: buttonText
                anchors.verticalCenterOffset:
@@ -94,19 +95,19 @@ MouseArea {
                anchors.horizontalCenterOffset:
                    switch (buttonText.text) {
                        case "-": {
-                           -button.height * 0.7
+                           -button.height * .7
                            break
                        }
                        case "\u00f7": {
-                           button.height * 0.7
+                           button.height * .7
                            break
                        }
                        case "\u00d7": {
-                           button.height * 0.3
+                           button.height * .3
                            break
                        }
                        case "+": {
-                           -button.height * 0.3
+                           -button.height * .3
                            break
                        }
                        default: {

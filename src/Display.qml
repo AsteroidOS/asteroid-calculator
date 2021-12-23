@@ -22,7 +22,7 @@ import org.asteroid.controls 1.0
 import org.asteroid.utils 1.0
 import "calculator.js" as CalcEngine
 
-Text {
+Label {
     id: displayText
 
     property string displayTextLength: calcwindow.displayText.length > 0 ? calcwindow.displayText : calcwindow.displayPrevious
@@ -32,8 +32,7 @@ Text {
         leftMargin: Dims.w(9)
         rightMargin: Dims.w(9)
     }
-    color: "#ff84E6F8"
-    font.styleName: "ExtraCondensed"
+    font.styleName: "ExtraCondensed Medium"
     verticalAlignment: Text.AlignBottom
     horizontalAlignment: DeviceInfo.hasRoundScreen ? Text.AlignHCenter : Text.AlignRight
 

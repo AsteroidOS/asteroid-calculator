@@ -70,15 +70,15 @@ Application {
                 id: displaySpacer
 
                 z: -1
-                anchors {bottom: parent.bottom
+                anchors {
+                    bottom: parent.bottom
                     left: parent.left
                     right: parent.right
                     leftMargin: -Dims.w(8)
                     rightMargin: -Dims.w(8)
                 }
                 height: content.height/4
-                color: "#aa000000"
-
+                color: "#bb19381F"
             }
 
             MouseArea {
@@ -122,7 +122,7 @@ Application {
             CalcButton { width: grid.w; height: grid.h; operation: "3"; }
             CalcButton { width: grid.w; height: grid.h; operation: "="; }
 
-            Text { text: " " }
+            Item { width: grid.w; height: width; }
             CalcButton { width: grid.w; height: grid.h; operation: "."; }
             CalcButton { width: grid.w; height: grid.h; operation: "0"; }
             CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.leftArrow }
