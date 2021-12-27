@@ -29,8 +29,8 @@ Label {
     property int minimumSize: Dims.l(9)
 
     anchors {
-        leftMargin: Dims.w(9)
-        rightMargin: Dims.w(9)
+        leftMargin: DeviceInfo.hasRoundScreen ? Dims.w(9) : Dims.w(6)
+        rightMargin: DeviceInfo.hasRoundScreen ? Dims.w(9) : Dims.w(6)
     }
     font.styleName: "ExtraCondensed Medium"
     verticalAlignment: Text.AlignBottom
@@ -43,54 +43,96 @@ Label {
     onTextChanged: refitText()
 
     function refitText() {
-        switch (displayTextLength.length) {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5: {
-                font.pixelSize = Dims.l(15)
-                return
-            }
-            case 6: {
-                font.pixelSize = Dims.l(14)
-                return
-            }
-            case 7: {
-                font.pixelSize = Dims.l(13)
-                return
-            }
-            case 8: {
-                font.pixelSize = Dims.l(12.5)
-                return
-            }
-            case 9: {
-                font.pixelSize = Dims.l(12)
-                return
-            }
-            case 10:
-            case 11: {
-                font.pixelSize = Dims.l(11)
-                return
-            }
-            case 12: {
-                font.pixelSize = Dims.l(10.5)
-                return
-            }
-            case 13: {
-                font.pixelSize = Dims.l(10)
-                return
-            }
-            case 14: {
-                font.pixelSize = Dims.l(9.5)
-                return
-            }
-            default: {
-                font.pixelSize = Dims.l(9)
-                return
+        if (DeviceInfo.hasRoundScreen) {
+            switch (displayTextLength.length) {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5: {
+                    font.pixelSize = Dims.l(15)
+                    return
+                }
+                case 6: {
+                    font.pixelSize = Dims.l(14)
+                    return
+                }
+                case 7: {
+                    font.pixelSize = Dims.l(13)
+                    return
+                }
+                case 8: {
+                    font.pixelSize = Dims.l(12.5)
+                    return
+                }
+                case 9: {
+                    font.pixelSize = Dims.l(12)
+                    return
+                }
+                case 10:
+                case 11: {
+                    font.pixelSize = Dims.l(11)
+                    return
+                }
+                case 12: {
+                    font.pixelSize = Dims.l(10.5)
+                    return
+                }
+                case 13: {
+                    font.pixelSize = Dims.l(10)
+                    return
+                }
+                case 14: {
+                    font.pixelSize = Dims.l(9.5)
+                    return
+                }
+                default: {
+                    font.pixelSize = Dims.l(9)
+                    return
+                }
             }
         }
+        else {
+            switch (displayTextLength.length) {
+
+
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12: {
+                    font.pixelSize = Dims.l(15)
+                    return
+                }
+                case 13: {
+                    font.pixelSize = Dims.l(14.5)
+                    return
+                }
+                case 14: {
+                    font.pixelSize = Dims.l(14)
+                    return
+                }
+                case 15: {
+                    font.pixelSize = Dims.l(13.5)
+                    return
+                }
+                default: {
+                    font.pixelSize = Dims.l(13)
+                    return
+                }
+            }
+        }
+
+
     }
 
     text: displayTextLength
