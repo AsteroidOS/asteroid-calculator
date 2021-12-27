@@ -95,8 +95,6 @@ Label {
         }
         else {
             switch (displayTextLength.length) {
-
-
                 case 0:
                 case 1:
                 case 2:
@@ -131,8 +129,6 @@ Label {
                 }
             }
         }
-
-
     }
 
     text: displayTextLength
