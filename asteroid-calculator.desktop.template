@@ -3,5 +3,5 @@ Type=Application
 Categories=Applications;
 Exec=invoker --single-instance --type=qtcomponents-qt5 /usr/bin/asteroid-calculator
 Icon=ios-calculator-outline
-X-Asteroid-Center-Color=#709801
-X-Asteroid-Outer-Color=#233412
+X-Asteroid-Center-Color=#7CA600
+X-Asteroid-Outer-Color=#0C0B00
