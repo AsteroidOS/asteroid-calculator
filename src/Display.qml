@@ -42,6 +42,16 @@ Label {
     onHeightChanged: refitText()
     onTextChanged: refitText()
 
+    // calculate the existing precision of the passed num
+    function trailing(num) {
+        var nn = num.toString();
+        var dp = nn.indexOf(".");
+        return dp == -1 ? 0 : nn.length - dp - 1
+    }
+    // format number according to existing precision and current locale
+    function localeformat(num) {
+        return Number(num).toLocaleString(Qt.locale(), 'f', trailing(num))
+    }
     function refitText() {
         if (DeviceInfo.hasRoundScreen) {
             switch (displayTextLength.length) {
@@ -131,5 +141,5 @@ Label {
         }
     }
 
-    text: displayTextLength
+    text: localeformat(displayTextLength)
 }
