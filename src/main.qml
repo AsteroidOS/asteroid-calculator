@@ -44,9 +44,9 @@ Application {
 
         anchors {
             fill: parent
-            leftMargin: DeviceInfo.hasRoundScreen ? Dims.w(8) : 0
-            rightMargin: DeviceInfo.hasRoundScreen ? Dims.w(8) : 0
-            bottomMargin: DeviceInfo.hasRoundScreen ? Dims.h(7) : 0
+            leftMargin: DeviceSpecs.hasRoundScreen ? Dims.w(8) : 0
+            rightMargin: DeviceSpecs.hasRoundScreen ? Dims.w(8) : 0
+            bottomMargin: DeviceSpecs.hasRoundScreen ? Dims.h(7) : 0
         }
 
         Item {

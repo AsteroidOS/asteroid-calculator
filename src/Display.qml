@@ -29,12 +29,12 @@ Label {
     property int minimumSize: Dims.l(9)
 
     anchors {
-        leftMargin: DeviceInfo.hasRoundScreen ? Dims.w(9) : Dims.w(6)
-        rightMargin: DeviceInfo.hasRoundScreen ? Dims.w(9) : Dims.w(6)
+        leftMargin: DeviceSpecs.hasRoundScreen ? Dims.w(9) : Dims.w(6)
+        rightMargin: DeviceSpecs.hasRoundScreen ? Dims.w(9) : Dims.w(6)
     }
     font.styleName: "ExtraCondensed Medium"
     verticalAlignment: Text.AlignBottom
-    horizontalAlignment: DeviceInfo.hasRoundScreen ? Text.AlignHCenter : Text.AlignRight
+    horizontalAlignment: DeviceSpecs.hasRoundScreen ? Text.AlignHCenter : Text.AlignRight
 
     onDisplayTextLengthChanged: refitText()
     Component.onCompleted: refitText()
@@ -53,7 +53,7 @@ Label {
         return Number(num).toLocaleString(Qt.locale(), 'f', trailing(num))
     }
     function refitText() {
-        if (DeviceInfo.hasRoundScreen) {
+        if (DeviceSpecs.hasRoundScreen) {
             switch (displayTextLength.length) {
                 case 0:
                 case 1:
