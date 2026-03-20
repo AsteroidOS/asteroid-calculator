@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.6.0)
 
-project(asteroid-calculator
-	VERSION 0.0.1
-	DESCRIPTION "Default calculator app for AsteroidOS")
+project(
+	asteroid-calculator
+	VERSION 2.0
+	DESCRIPTION "Default calculator app for AsteroidOS"
+)
 
 find_package(AsteroidApp REQUIRED)
 
