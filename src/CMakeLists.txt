@@ -3,8 +3,8 @@ set_target_properties(asteroid-calculator PROPERTIES PREFIX "")
 
 target_link_libraries(
 	asteroid-calculator
-	PUBLIC
-		Asteroid::AsteroidApp
+	PRIVATE
+		Asteroid::AsteroidApp6
 )
 
 install(
