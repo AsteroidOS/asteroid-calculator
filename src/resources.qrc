@@ -1,8 +1,5 @@
 <RCC>
-    <qresource prefix="/">
-        <file>CalcButton.qml</file>
-        <file>Display.qml</file>
-        <file>main.qml</file>
+    <qresource prefix="/Calculator/">
         <file>calculator.js</file>
     </qresource>
 </RCC>
